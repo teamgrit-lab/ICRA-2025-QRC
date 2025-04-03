@@ -99,7 +99,7 @@ The `front_camera` node transmits compressed image data in `AgentMsg` format to 
 
 The name of this node is defined as `front_camera`, and MIME information about the Topic is provided.
 
-For MIME creation details, refer to the [MIME and Type](https://www.google.com/search?q=https://docs.cobiz.kr/docs/advanced-guides/type-and-mime) documentation.
+For MIME creation details, refer to the [MIME and Type](https://docs.cobiz.kr/docs/advanced-guides/type-and-mime/) documentation.
 
 As indicated by the MIME, `front_camera` compresses image data using the H.264 codec, and the original data is in VGA (640\*480) resolution.
 
@@ -188,7 +188,7 @@ Like the `Agent` package, received data is transmitted as ROS2 Topics in the `te
 
 ![CoBiz Agent linux to linux](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/ICRA-2025-QRC/image/CoBiz%20Agent%20(Linux%20to%20Linux).png)
 
-Before creating the config file, review the [MIME and Type](https://www.google.com/search?q=https://docs.cobiz.kr/docs/advanced-guides/type-and-mime) documentation.
+Before creating the config file, review the [MIME and Type](https://docs.cobiz.kr/docs/advanced-guides/type-and-mime/) documentation.
 
 Modify the [`config/config.yaml`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/ICRA-2025-QRC/teamgrit_agent_receiver/config/config.yaml) file based on the documentation.
 
