@@ -1,0 +1,6 @@
+state: "NotRegistered"
+id: null
+token: null
+preset: "your_preset"
+secret_key: "your_secret_key"
+server_address: "teamgrit_address"

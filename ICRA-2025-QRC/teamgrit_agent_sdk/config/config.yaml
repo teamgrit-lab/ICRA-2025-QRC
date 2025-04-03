@@ -1,0 +1,10 @@
+topics:
+  - topic: "/teamgrit/image/raw"
+    name: "front_camera"
+    mime: "video/h264;width=640;height=480;framerate=30;codecs=avc1.42002A"
+  - topic: "/teamgrit/image/raw2"
+    name: "back_camera"
+    mime: "video/h264;width=640;height=480;framerate=30;codecs=avc1.42002A"
+  - topic: "/teamgrit/control"
+    name: "control"
+    mime: "text/json"
