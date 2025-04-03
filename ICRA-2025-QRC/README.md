@@ -49,7 +49,7 @@ Float32[16] button
 
 The diagram below provides a simplified overview of the TeamGRIT Agent SDK architecture.
 
-![CoBiz Agent](https://github.com/teamgrit-lab/teamgrit-agent/blob/main/image/CoBiz%20Agent%20(Linux%20to%20Client).png)
+![CoBiz Agent](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/ICRA-2025-QRC/image/CoBiz%20Agent%20(Linux%20to%20Client).png)
 
 The central Agent node acts as a bridge between the remote control station (CoBiz Website) and the robot (User Node).
 
@@ -186,7 +186,7 @@ Data can be received in another Linux environment via `teamgrit_agent_receiver` 
 
 Like the `Agent` package, received data is transmitted as ROS2 Topics in the `teamgrit_agent_msg` format.
 
-![CoBiz Agent linux to linux](https://github.com/teamgrit-lab/teamgrit-agent/blob/main/image/CoBiz%20Agent%20(Linux%20to%20Linux).png)
+![CoBiz Agent linux to linux](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/ICRA-2025-QRC/image/CoBiz%20Agent%20(Linux%20to%20Linux).png)
 
 Before creating the config file, review the [MIME and Type](https://www.google.com/search?q=https://docs.cobiz.kr/docs/advanced-guides/type-and-mime) documentation.
 
