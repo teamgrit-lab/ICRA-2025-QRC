@@ -238,7 +238,7 @@ Similar to the previous `teamgrit_agent_sdk` setup, there are six parameters.
 
 `endpoint`: The path of the URL for receiving data from the WebSocket.
 
-`type`: For information on types, refer to the [MIME and Type](https://www.google.com/search?q=https://docs.cobiz.kr/docs/advanced-guides/type-and-mime) document.
+`type`: For information on types, refer to the [MIME and Type](https://docs.cobiz.kr/docs/advanced-guides/type-and-mime/) document.
 
 Build and execution methods are as follows:
 
