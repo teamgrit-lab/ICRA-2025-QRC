@@ -21,13 +21,13 @@ TeamGRIT Agent SDK는 ROS2에서 사용가능한 패키지로, 메시지 형식�
 
 ## 메시지 Topic 정의
 
-- [`AgentMsg.msg`](https://github.com/teamgrit-lab/teamgrit-agent/blob/main/teamgrit_agent_msgs/msg/AgentMsg.msg)에서는 범용적인 Moth 서버 연동을 위해 모든 데이터 형식을`uint8[]`로 통합하여 사용합니다.
+- [`AgentMsg.msg`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_msgs/msg/AgentMsg.msg)에서는 범용적인 Moth 서버 연동을 위해 모든 데이터 형식을`uint8[]`로 통합하여 사용합니다.
 
 ```
 uint8[] data
 ```
 
-- [`AgentControl.msg`](https://github.com/teamgrit-lab/teamgrit-agent/blob/main/teamgrit_agent_msgs/msg/AgentControl.msg)에서는 4족 보행 로봇에서 사용될 조이스틱 Float32값 4개와 그 이외의 버튼 입력을 감지하는 Float32 배열이 정의되어있습니다.
+- [`AgentControl.msg`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_msgs/msg/AgentControl.msg)에서는 4족 보행 로봇에서 사용될 조이스틱 Float32값 4개와 그 이외의 버튼 입력을 감지하는 Float32 배열이 정의되어있습니다.
 
 ```
 Float32 lx
@@ -45,18 +45,18 @@ Float32[16] button
 
 아래의 그림은 TeamGRIT Agent SDK에 대한 구조를 간략하게 나타낸 그림입니다.
 
-![CoBiz Agent](https://github.com/teamgrit-lab/teamgrit-agent/blob/main/image/CoBiz%20Agent%20(Linux%20to%20Client).png)
+![CoBiz Agent](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/image/CoBiz%20Agent%20(Linux%20to%20Client).png)
 
 중앙에 있는 Agent 노드에서는 원격 관제소(CoBiz WebSite)와 로봇(User Node)을 연결하기 위한 브릿지 역할을 수행합니다.
 
 범용적인 브릿지 역할을 수행하기 위해, Agent 노드에서 사용할 메시지 형식을 두 가지로 정의합니다.
 
-+ [AgentMsg](https://github.com/teamgrit-lab/teamgrit-agent/blob/main/teamgrit_agent_msgs/msg/AgentMsg.msg)
-+ [AgentControl](https://github.com/teamgrit-lab/teamgrit-agent/blob/main/teamgrit_agent_msgs/msg/AgentControl.msg)
++ [AgentMsg](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_msgs/msg/AgentMsg.msg)
++ [AgentControl](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_msgs/msg/AgentControl.msg)
 
 사용자는 각각의 노드에서 원격 관제가 필요한 데이터를 `AgentMsg`형식에 맞춰 Agent 노드로 전송합니다.
 
-Agent 노드에서는 [config/config.yaml](https://github.com/teamgrit-lab/teamgrit-agent/blob/main/teamgrit_agent_sdk/config/config.yaml) 파일에 정의된 Topic 데이터를 읽어들이고, Moth 서버에 전달하는 브릿지 역할을 수행합니다.
+Agent 노드에서는 [config/config.yaml](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_sdk/config/config.yaml) 파일에 정의된 Topic 데이터를 읽어들이고, Moth 서버에 전달하는 브릿지 역할을 수행합니다.
 
 또한 Agent 노드에서는 Control 노드에 원격 조종을 위한 `AgentControl`메시지를 제공합니다.
 
@@ -68,7 +68,7 @@ Agent SDK를 사용하기에 앞서 사용자는 두가지의 yaml 파일을 작
 
 ### config.yaml
 
-[`config.yaml`](https://github.com/teamgrit-lab/teamgrit-agent/blob/main/teamgrit_agent_sdk/config/config.yaml)파일에는 User Node에서 사용할 Topic 정보와 사용자 지정 이름 및 mime에 대한 정보가 기재되어 있습니다.
+[`config.yaml`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_sdk/config/config.yaml)파일에는 User Node에서 사용할 Topic 정보와 사용자 지정 이름 및 mime에 대한 정보가 기재되어 있습니다.
 
 아래는 예제를 통한 설명입니다.
 
@@ -117,7 +117,7 @@ Agent에서는 Draco 이외의 압축 방법은 제공하지 않습니다.
 
 ### request.yaml
 
-[`request.yaml`](https://github.com/teamgrit-lab/teamgrit-agent/blob/main/teamgrit_agent_sdk/config/request.yaml)파일에는 [CoBiz](https://docs.cobiz.kr/docs/introduction) 서버에 전송될 `preset` 정보와 `secret_key`및 `server_address` 정보가 들어있습니다.
+[`request.yaml`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_sdk/config/request.yaml)파일에는 [CoBiz](https://docs.cobiz.kr/docs/introduction) 서버에 전송될 `preset` 정보와 `secret_key`및 `server_address` 정보가 들어있습니다.
 
 ```
 state: "NotRegistered"
@@ -182,11 +182,11 @@ ros2 run teamgrit_agent_sdk teamgrit_agent_sdk
 
 `Agent` 패키지와 마찬가지로 수신된 데이터는 `teamgrit_agent_msg`형식에 맞춰 ROS2 Topic으로 송신됩니다.
 
-![CoBiz Agent linux to linux](https://github.com/teamgrit-lab/teamgrit-agent/blob/main/image/CoBiz%20Agent%20(Linux%20to%20Linux).png)
+![CoBiz Agent linux to linux](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/image/CoBiz%20Agent%20(Linux%20to%20Linux).png)
 
 config 파일을 작성하기 전 [Mime 및 Type](https://docs.cobiz.kr/docs/advanced-guides/type-and-mime)에 대한 문서를 확인해주세요.
 
-문서를 참조한 뒤 [`config/config.yaml`](https://github.com/teamgrit-lab/teamgrit-agent/blob/main/teamgrit_agent_receiver/config/config.yaml)파일을 수정해줍니다.
+문서를 참조한 뒤 [`config/config.yaml`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_receiver/config/config.yaml)파일을 수정해줍니다.
 
 ```
 topics:
