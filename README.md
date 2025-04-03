@@ -21,7 +21,7 @@ TeamGRIT Agent SDK is a ROS2 compatible package designed to integrate message fo
 
 ## Message Topic Definitions
 
-  * [`AgentMsg.msg`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/ICRA-2025-QRC/teamgrit_agent_msgs/msg/AgentMsg.msg) integrates all data formats into `uint8[]` for universal Moth server compatibility.
+  * [`AgentMsg.msg`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_msgs/msg/AgentMsg.msg) integrates all data formats into `uint8[]` for universal Moth server compatibility.
 
 <!-- end list -->
 
@@ -29,7 +29,7 @@ TeamGRIT Agent SDK is a ROS2 compatible package designed to integrate message fo
 uint8[] data
 ```
 
-  * [`AgentControl.msg`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/ICRA-2025-QRC/teamgrit_agent_msgs/msg/AgentControl.msg) defines four Float32 values for joysticks used in quadruped robots, along with a Float32 array for button inputs.
+  * [`AgentControl.msg`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_msgs/msg/AgentControl.msg) defines four Float32 values for joysticks used in quadruped robots, along with a Float32 array for button inputs.
 
 <!-- end list -->
 
@@ -49,18 +49,18 @@ Float32[16] button
 
 The diagram below provides a simplified overview of the TeamGRIT Agent SDK architecture.
 
-![CoBiz Agent](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/ICRA-2025-QRC/image/CoBiz%20Agent%20(Linux%20to%20Client).png)
+![CoBiz Agent](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/image/CoBiz%20Agent%20(Linux%20to%20Client).png)
 
 The central Agent node acts as a bridge between the remote control station (CoBiz Website) and the robot (User Node).
 
 To serve as a universal bridge, two message formats are defined for use by the Agent node:
 
-  * [AgentMsg](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/ICRA-2025-QRC/teamgrit_agent_msgs/msg/AgentMsg.msg)
-  * [AgentControl](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/ICRA-2025-QRC/teamgrit_agent_msgs/msg/AgentControl.msg)
+  * [AgentMsg](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_msgs/msg/AgentMsg.msg)
+  * [AgentControl](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_msgs/msg/AgentControl.msg)
 
 Users transmit the data needed for remote control from their respective nodes to the Agent node in the `AgentMsg` format.
 
-The Agent node reads the Topic data defined in the [config/config.yaml](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/ICRA-2025-QRC/teamgrit_agent_sdk/config/config.yaml) file and acts as a bridge to forward it to the Moth server.
+The Agent node reads the Topic data defined in the [config/config.yaml](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_sdk/config/config.yaml) file and acts as a bridge to forward it to the Moth server.
 
 The Agent node also provides `AgentControl` messages to the Control node for remote operation.
 
@@ -72,7 +72,7 @@ Users must create two YAML files before utilizing the Agent SDK.
 
 ### config.yaml
 
-The [`config.yaml`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/ICRA-2025-QRC/teamgrit_agent_sdk/config/config.yaml) file includes Topic information for the User Node, along with user-specified names and MIME details.
+The [`config.yaml`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_sdk/config/config.yaml) file includes Topic information for the User Node, along with user-specified names and MIME details.
 
 An example is shown below:
 
@@ -121,7 +121,7 @@ The `sensor` and `control` nodes use JSON formatted data.
 
 ### request.yaml
 
-The [`request.yaml`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/ICRA-2025-QRC/teamgrit_agent_sdk/config/request.yaml) file contains `preset`, `secret_key`, and `server_address` information for transmission to the [CoBiz](https://docs.cobiz.kr/docs/introduction) server.
+The [`request.yaml`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_sdk/config/request.yaml) file contains `preset`, `secret_key`, and `server_address` information for transmission to the [CoBiz](https://docs.cobiz.kr/docs/introduction) server.
 
 ```yaml
 state: "NotRegistered"
@@ -186,11 +186,11 @@ Data can be received in another Linux environment via `teamgrit_agent_receiver` 
 
 Like the `Agent` package, received data is transmitted as ROS2 Topics in the `teamgrit_agent_msg` format.
 
-![CoBiz Agent linux to linux](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/ICRA-2025-QRC/image/CoBiz%20Agent%20(Linux%20to%20Linux).png)
+![CoBiz Agent linux to linux](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/image/CoBiz%20Agent%20(Linux%20to%20Linux).png)
 
 Before creating the config file, review the [MIME and Type](https://docs.cobiz.kr/docs/advanced-guides/type-and-mime/) documentation.
 
-Modify the [`config/config.yaml`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/ICRA-2025-QRC/teamgrit_agent_receiver/config/config.yaml) file based on the documentation.
+Modify the [`config/config.yaml`](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/main/teamgrit_agent_receiver/config/config.yaml) file based on the documentation.
 
 ```yaml
 topics:
