@@ -8,8 +8,9 @@ TeamGRIT Agent SDK is a ROS2 compatible package designed to integrate message fo
 2.  [Message Topic Definitions](#message-topic-definitions)
 3.  [Code Structure Explanation](#code-structure-explanation)
 4.  [YAML File Creation](#yaml-file-creation)
-5.  [Build and Execution](#build-and-execution)
-6.  [Linux to Linux](#linux-to-linux)
+5.  [Sensor message transmission rules](#Sensor-message-transmission-rules)
+6.  [Build and Execution](#build-and-execution)
+7.  [Linux to Linux](#linux-to-linux)
 
 ## Key Features
 
@@ -133,6 +134,40 @@ server_address: "teamgrit_address"
 ```
 
 Users enter the `preset` name, `secret_key`, and `server_address` provided by TeamGRIT. (These values are provided by TeamGRIT.)
+
+### Sensor message transmission rules
+
+To display sensor data accurately in the UI, messages must be sent in the following format:
+
+```
+{
+  "data": {
+    "temperature": 25,
+    "left_front_hip": 0.123,
+    "battery": 82.5
+  }
+}
+```
+
+All sensor data must be placed inside the data object.
+
+Each sensor entry must be structured in the form {sensor name: value}.
+
+The battery item is used separately for the battery display area of ​​the UI and must be sent as a float value. (Values ​​other than battery are displayed as text in a separate UI.)
+
+The UI system renders a 1:1 mapping of sensor names to values ​​based on the {sensor name: value} structure. As the depth increases, this mapping breaks down, causing problems in UI representation.
+
+Therefore, it does not allow nested objects inside data, as in the example below. (It cannot be used in a depth exceeding 2 levels.)
+
+```
+{
+  "data": {
+    "temp": {
+      "dt": 123
+    }
+  }
+}
+```
 
 ## Build and Execution
 
