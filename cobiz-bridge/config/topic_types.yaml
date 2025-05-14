@@ -1,0 +1,10 @@
+# 토픽별 메시지 타입 정의
+topic_types:
+  /imu: "sensor_msgs/msg/Imu"
+  /scan: "sensor_msgs/msg/LaserScan"
+  /rgb: "sensor_msgs/msg/Image"
+  /tf: "tf2_msgs/msg/TFMessage"
+  /map: "nav_msgs/msg/OccupancyGrid"
+  /cmd_vel: "geometry_msgs/msg/Twist"
+  /goal_pose: "geometry_msgs/msg/PoseStamped"
+  /odom: "nav_msgs/msg/Odometry"

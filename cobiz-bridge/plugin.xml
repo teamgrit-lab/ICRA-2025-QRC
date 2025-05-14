@@ -1,0 +1,60 @@
+<library path="message_handlers">
+  <class type="ImuHandler" base_class_type="cobiz_bridge::MessageHandlerBase">
+    <description>IMU 메시지 처리 핸들러</description>
+  </class>
+  <class type="OdomHandler" base_class_type="cobiz_bridge::MessageHandlerBase">
+    <description>Odometry 메시지 처리 핸들러</description>
+  </class>
+  <class type="LaserScanHandler" base_class_type="cobiz_bridge::MessageHandlerBase">
+    <description>LaserSacn 메시지 처리 핸들러</description>
+  </class>
+  <class type="ImageHandler" base_class_type="cobiz_bridge::MessageHandlerBase">
+    <description>Image 메시지 처리 핸들러</description>
+  </class>
+  <class type="TFMessageHandler" base_class_type="cobiz_bridge::MessageHandlerBase">
+    <description>TFMessage 메시지 처리 핸들러</description>
+  </class>
+  <class type="OccupancyGridHandler" base_class_type="cobiz_bridge::MessageHandlerBase">
+    <description>OccupancyGrid 메시지 처리 핸들러</description>
+  </class>
+  <class type="PoseStampedHandler" base_class_type="cobiz_bridge::MessageHandlerBase">
+    <description>PoseStamped 메시지 처리 핸들러</description>
+  </class>
+  <class type="TwistHandler" base_class_type="cobiz_bridge::MessageHandlerBase">
+    <description>Twist 메시지 처리 핸들러</description>
+  </class>
+  <class type="PointCloud2Handler" base_class_type="cobiz_bridge::MessageHandlerBase">
+    <description>PointCloud2 메시지 처리 핸들러</description>
+  </class>
+</library>
+
+<library path="receiver_message_handlers">
+  <class type="ReceiverImuHandler" base_class_type="cobiz_bridge::ReceiverMessageHandlerBase">
+    <description>IMU 메시지 수신 핸들러</description>
+  </class>
+  <class type="ReceiverOdomHandler" base_class_type="cobiz_bridge::ReceiverMessageHandlerBase">
+    <description>Odom 메시지 수신 핸들러</description>
+  </class>
+  <class type="ReceiverLaserScanHandler" base_class_type="cobiz_bridge::ReceiverMessageHandlerBase">
+    <description>LaserScan 메시지 수신 핸들러</description>
+  </class>
+  <class type="ReceiverImageHandler" base_class_type="cobiz_bridge::ReceiverMessageHandlerBase">
+    <description>Image 메시지 수신 핸들러</description>
+  </class>
+  <class type="ReceiverTFMessageHandler" base_class_type="cobiz_bridge::ReceiverMessageHandlerBase">
+    <description>TFMessage 메시지 수신 핸들러</description>
+  </class>
+  <class type="ReceiverOccupancyGridHandler" base_class_type="cobiz_bridge::ReceiverMessageHandlerBase">
+    <description>OccupancyGrid 메시지 수신 핸들러</description>
+  </class>
+  <class type="ReceiverPoseStampedHandler" base_class_type="cobiz_bridge::ReceiverMessageHandlerBase">
+    <description>PoseStamped 메시지 수신 핸들러</description>
+  </class>
+  <class type="ReceiverTwistHandler" base_class_type="cobiz_bridge::ReceiverMessageHandlerBase">
+    <description>Twist 메시지 수신 핸들러</description>
+  </class>
+  <class type="ReceiverPointCloud2Handler" base_class_type="cobiz_bridge::ReceiverMessageHandlerBase">
+    <description>PointCloud2 메시지 수신 핸들러</description>
+  </class>
+  <!-- 다른 수신기 핸들러들 추가 필요 -->
+</library>

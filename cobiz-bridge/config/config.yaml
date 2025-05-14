@@ -1,0 +1,11 @@
+subscribers:
+  - /scan
+  - /rgb
+  - /tf
+  - /map
+  - /imu
+  - /odom
+
+publishers:
+  - /cmd_vel
+  - /goal_pose

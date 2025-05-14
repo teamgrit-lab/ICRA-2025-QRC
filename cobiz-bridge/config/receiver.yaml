@@ -1,0 +1,26 @@
+# 수신기 웹소켓 연결 설정
+endpoints:
+  /imu:
+    host: "localhost"
+    port: "8080"
+    endpoint: "/ws/receiver/imu"
+  /scan:
+    host: "localhost"
+    port: "8080"
+    endpoint: "/ws/receiver/scan"
+  /rgb:
+    host: "localhost" 
+    port: "8080"
+    endpoint: "/ws/receiver/camera"
+  /tf:
+    host: "localhost"
+    port: "8080"
+    endpoint: "/ws/receiver/tf"
+  /map:
+    host: "localhost"
+    port: "8080"
+    endpoint: "/ws/receiver/map"
+  /cmd_vel:
+    host: "localhost"
+    port: "8080"
+    endpoint: "/ws/receiver/cmd_vel"
