@@ -228,11 +228,11 @@ preset을 세팅하는 방법은 아래와 같습니다.
 
 먼저 CoBiz Website를 방문하여 로그인을 진행합니다. (팀별로 다른 도메인의 웹사이트가 주어집니다. TeamGRIT에 문의하세요.)
 
-![CoBiz_1](https://github.com/teamgrit-lab/cobiz-ros2-bridge/blob/main/images/CoBiz_1.png)
+![CoBiz_1](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/cobiz-ros2-bridge/images/CoBiz_1.png)
 
 **좌측 메뉴의 관리 텝을 클릭하고, 프리셋 텝으로 이동합니다.**
 
-![CoBiz_2](https://github.com/teamgrit-lab/cobiz-ros2-bridge/blob/main/images/CoBiz_2.png)
+![CoBiz_2](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/cobiz-ros2-bridge/images/CoBiz_2.png)
 
 **우측의 프리셋 등록을 통해 아래와 같이 JSON 형태의 프리셋을 입력합니다.**
 
@@ -350,7 +350,7 @@ Subscriber를 생성하여 원격 컴퓨터로 데이터를 송신할 플러그�
 
 ### 1-1. Subscription용 plugin
 
-기본 예제를 확인하려면 [src/plugins/odom_handler.cpp](https://github.com/teamgrit-lab/cobiz-ros2-bridge/blob/main/cobiz-bridge/src/plugins/odom_handler.cpp)을 확인할 수 있습니다.
+기본 예제를 확인하려면 [src/plugins/odom_handler.cpp](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/cobiz-ros2-bridge/cobiz-bridge/src/plugins/odom_handler.cpp)을 확인할 수 있습니다.
 
 이 핸들러 파일은 `nav_msgs/msg/Odometry`토픽에 대한 핸들러입니다.
 
@@ -395,13 +395,13 @@ std::string getMessageType() const override {
 
 ### 1-2. publisher용 plugin
 
-기본 예제를 확인하려면 [src/plugins/twist_handler.cpp](https://github.com/teamgrit-lab/cobiz-ros2-bridge/blob/main/cobiz-bridge/src/plugins/twist_handler.cpp)를 확인할 수 있습니다.
+기본 예제를 확인하려면 [src/plugins/twist_handler.cpp](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/cobiz-ros2-bridge/cobiz-bridge/src/plugins/twist_handler.cpp)를 확인할 수 있습니다.
 
 이 핸들러 파일은 `geometry_msgs/msg/Twist`토픽에 대한 핸들러입니다.
 
 **(Line 2)** ROS2에서 제공하는 `geometry_msgs/msg/twist.hpp`헤더파일을 include하여 msg 데이터를 생성할 수 있게 해줍니다.
 
-**(Line 17)** `plugin_init()`함수에는 웹소켓 데이터를 읽어들이기 위한 비동기 딜레이가 세팅되어있습니다. 데이터의 hz에 따라 read_timer_ 주기를 세팅해주세요. (100hz 이상의 데이터는 여러개의 데이터를 하나로 모아서 보내는 것을 권장합니다. [src/plugins/tf_message_handler.cpp](https://github.com/teamgrit-lab/cobiz-ros2-bridge/blob/main/cobiz-bridge/src/plugins/tf_message_handler.cpp)을 참고하세요.)
+**(Line 17)** `plugin_init()`함수에는 웹소켓 데이터를 읽어들이기 위한 비동기 딜레이가 세팅되어있습니다. 데이터의 hz에 따라 read_timer_ 주기를 세팅해주세요. (100hz 이상의 데이터는 여러개의 데이터를 하나로 모아서 보내는 것을 권장합니다. [src/plugins/tf_message_handler.cpp](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/cobiz-ros2-bridge/cobiz-bridge/src/plugins/tf_message_handler.cpp)을 참고하세요.)
 
 ```
 read_timer = std::make_shared<boost::asio::steady_timer>(get_io_context(), std::chrono::milliseconds(100)); //   < 10hz
@@ -432,11 +432,11 @@ read_timer = std::make_shared<boost::asio::steady_timer>(get_io_context(), std::
 
 ### 2-1. subscription용 receiver_plugin
 
-기본 예제를 확인하려면 [src/receiver_plugins/receiver_twist_handler.cpp](https://github.com/teamgrit-lab/cobiz-ros2-bridge/blob/main/cobiz-bridge/src/receiver_plugins/receiver_twist_handler.cpp)를 확인 할 수 있습니다.
+기본 예제를 확인하려면 [src/receiver_plugins/receiver_twist_handler.cpp](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/cobiz-ros2-bridge/cobiz-bridge/src/receiver_plugins/receiver_twist_handler.cpp)를 확인 할 수 있습니다.
 
 **(Line 2)** 앞선 plugin 예제와 마찬가지로 `geometry_msgs/msg/twist.hpp`헤더 파일을 include합니다.
 
-**(Line 17)** `plugin_init()`함수에는 read_timer_ 변수를 통해 웹소켓 수신 딜레이를 설정 할 수 있습니다. (100hz 이상의 데이터를 송수신 하는것은 권장하지 않습니다. 한번의 송신에 여러 데이터를 모아서 송신하는 예제는 [src/plugins/tf_message_handler.cpp](https://github.com/teamgrit-lab/cobiz-ros2-bridge/blob/main/cobiz-bridge/src/plugins/tf_message_handler.cpp)을 참고하세요.)
+**(Line 17)** `plugin_init()`함수에는 read_timer_ 변수를 통해 웹소켓 수신 딜레이를 설정 할 수 있습니다. (100hz 이상의 데이터를 송수신 하는것은 권장하지 않습니다. 한번의 송신에 여러 데이터를 모아서 송신하는 예제는 [src/plugins/tf_message_handler.cpp](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/cobiz-ros2-bridge/cobiz-bridge/src/plugins/tf_message_handler.cpp)을 참고하세요.)
 
 ```
 (Line 21) read_timer_ = std::make_shared<boost::asio::steady_timer>(get_io_context(), std::chrono::milliseconds(100)); // < 10hz
@@ -463,7 +463,7 @@ msg 데이터를 JSON 형식으로 파싱하여 웹소켓으로 로봇쪽에 송
 
 ### 2-2. publisher용 receiver_plugin
 
-기본 예제를 확인하려면 [src/receiver_plugins/receiver_odom_handler.cpp](https://github.com/teamgrit-lab/cobiz-ros2-bridge/blob/main/cobiz-bridge/src/receiver_plugins/receiver_odom_handler.cpp)을 확인 할 수 있습니다.
+기본 예제를 확인하려면 [src/receiver_plugins/receiver_odom_handler.cpp](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/cobiz-ros2-bridge/cobiz-bridge/src/receiver_plugins/receiver_odom_handler.cpp)을 확인 할 수 있습니다.
 
 **(Line 18)** `plugin_init()`함수에서 read_timer_ 변수를 통해 웹소켓 데이터 수신 딜레이를 설정 할 수 있습니다. (송신 딜레이보다 뒤쳐지지 않도록 수신 딜레이 값을 더 낮게 세팅해주세요.)
 
@@ -494,6 +494,6 @@ Moth 서버를 활용한 통신은 ROS2와는 달리 외부 서버와 통신을 
 
 그렇기 때문에 이미지 raw 데이터 및 포인트 클라우드와 같은 큰 데이터는 압축이 반드시 필요합니다.
 
-그렇기 때문에 [src/plugins/image_handler.cpp](https://github.com/teamgrit-lab/cobiz-ros2-bridge/blob/main/cobiz-bridge/src/plugins/image_handler.cpp)과 [src/plugins/point_cloud2_handler.cpp](https://github.com/teamgrit-lab/cobiz-ros2-bridge/blob/main/cobiz-bridge/src/plugins/point_cloud2_handler.cpp)같은 플러그인은 데이터를 압축하여 전송하는 방식으로 코드가 작성되었습니다.
+그렇기 때문에 [src/plugins/image_handler.cpp](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/cobiz-ros2-bridge/cobiz-bridge/src/plugins/image_handler.cpp)과 [src/plugins/point_cloud2_handler.cpp](https://github.com/teamgrit-lab/ICRA-2025-QRC/blob/cobiz-ros2-bridge/cobiz-bridge/src/plugins/point_cloud2_handler.cpp)같은 플러그인은 데이터를 압축하여 전송하는 방식으로 코드가 작성되었습니다.
 
 두 플러그인을 참고하면 GStreamer를 활용한 이미지 인코딩과 Draco를 사용한 PointCloud2 압축 방법을 확인 할 수 있습니다.
