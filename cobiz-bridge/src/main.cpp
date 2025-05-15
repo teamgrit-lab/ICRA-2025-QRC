@@ -19,6 +19,13 @@
 
 using json = nlohmann::json;
 
+// Helper function to replace all '/' with '_'
+std::string replace_slashes(const std::string &input) {
+  std::string result = input;
+  std::replace(result.begin(), result.end(), '/', '_');
+  return result;
+}
+
 // config.yaml에서 토픽 이름 리스트 로드 - subscribers와 publishers 구분
 struct TopicLists {
   std::vector<std::string> subscribers;
@@ -67,7 +74,7 @@ public:
     const std::string &topic_name, 
     const std::string &type_str,
     std::shared_ptr<cobiz_bridge::MessageHandlerBase> handler)
-  : Node("topic_subscriber_" + topic_name.substr(1)), // '/'를 제거하여 노드 이름 생성
+  : Node("topic_subscriber" + replace_slashes(topic_name)), // '/'를 제거하여 노드 이름 생성
     handler_(handler)
   {
     RCLCPP_INFO(this->get_logger(), "토픽 %s (타입: %s) 구독 시작", 
@@ -101,7 +108,7 @@ public:
     const std::string &topic_name, 
     const std::string &type_str,
     std::shared_ptr<cobiz_bridge::MessageHandlerBase> handler)
-  : Node("topic_publisher_" + topic_name.substr(1)), // '/'를 제거하여 노드 이름 생성
+  : Node("topic_publisher" + replace_slashes(topic_name)), // '/'를 제거하여 노드 이름 생성
     handler_(handler)
   {
     RCLCPP_INFO(this->get_logger(), "토픽 %s (타입: %s) 발행 시작", 
